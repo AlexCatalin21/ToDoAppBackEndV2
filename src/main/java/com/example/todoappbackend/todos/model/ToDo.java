@@ -28,9 +28,9 @@ public class ToDo {
     @NotNull
     private Date expiringDate;
     @NotNull
-    private int estimatedDays;
+    private long estimatedDays;
     @NotNull
-    private int allocatedTime;
+    private long allocatedTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "todos_status_id", referencedColumnName = "Id")

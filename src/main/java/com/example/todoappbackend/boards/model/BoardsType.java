@@ -27,3 +27,4 @@ public class BoardsType {
     @Enumerated(EnumType.STRING)
     private Type type;
 }
+

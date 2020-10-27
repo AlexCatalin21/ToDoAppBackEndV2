@@ -36,5 +36,9 @@ public class Boards {
     @NotNull
     private BoardsType type;
 
+    public void addToDo(ToDo toDo){
+        toDos.add(toDo);
+    }
+
 
 }
