@@ -1,50 +1,47 @@
-package com.example.todoappbackend.boards.service;
-
-import com.example.todoappbackend.boards.dto.BoardsDto;
-import com.example.todoappbackend.boards.model.Boards;
-import com.example.todoappbackend.boards.model.BoardsType;
-import com.example.todoappbackend.boards.repository.BoardsRepository;
-import com.example.todoappbackend.boards.repository.BoardsTypeRepository;
-import com.example.todoappbackend.todos.model.ToDo;
-import com.example.todoappbackend.todos.service.ToDoService;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
-
-@Service
-@AllArgsConstructor
-public class BoardsService {
-
-    private final BoardsTypeRepository boardsTypeRepository;
-    private final ToDoService toDoService;
-    private final BoardsRepository boardsRepository;
-
-    public BoardsType getBoardTypeById(Long Id){
-        return boardsTypeRepository.getOne(Id);
-    }
-
-    public void addNewBoard(BoardsDto boardsDto){
-        Boards board = new Boards();
-        board.setName(boardsDto.getName());
-        board.setType(getBoardTypeById(boardsDto.getBoardTypeId()));
-
-        boardsRepository.save(board);
-
-//        boardsDto.getToDoDtoList().forEach(toDoDto -> {
-//            ToDo toDo=toDoService.createToDoFromDto(new ToDo(),toDoDto);
-//            toDoService.save(toDo);
-//            board.addToDo(toDo);
-//        });
+//package com.example.todoappbackend.boards.service;
 //
-//        Boards savedBoard = boardsRepository.save(board);
-//        boardsRepository.flush();
+//import com.example.todoappbackend.boards.dto.BoardsDto;
+//import com.example.todoappbackend.boards.model.Boards;
+//import com.example.todoappbackend.boards.model.BoardsType;
+//import com.example.todoappbackend.boards.repository.BoardsRepository;
+//import com.example.todoappbackend.boards.repository.BoardsTypeRepository;
+//import com.example.todoappbackend.todos.model.ToDo;
+//import com.example.todoappbackend.todos.service.ToDoService;
+//import lombok.AllArgsConstructor;
+//import org.springframework.stereotype.Service;
 //
-//        savedBoard.getToDos().forEach(toDo -> {
-//            toDo.setBoard(savedBoard);
-//        });
-
-//        Boards newSavedBoard=boardsRepository.save(savedBoard);
-//        boardsRepository.flush();
-    }
-
-
-}
+//import java.util.List;
+//
+//@Service
+//@AllArgsConstructor
+//public class BoardsService {
+//
+//    private final BoardsTypeRepository boardsTypeRepository;
+//    private final BoardsRepository boardsRepository;
+//    private final ToDoService toDoService;
+//
+//    public BoardsType getBoardTypeById(Long Id){
+//        return boardsTypeRepository.getOne(Id);
+//    }
+//
+//    public void addNewBoard(BoardsDto boardsDto){
+//        Boards board = new Boards();
+//        board.setName(boardsDto.getName());
+//        board.setType(getBoardTypeById(boardsDto.getBoardTypeId()));
+//
+//
+//
+////        boardsDto.getToDoDtoList().forEach(toDoDto -> {
+////            ToDo toDo=new ToDo();
+////            toDoService.save(toDo);
+////            board.addToDo(toDo);
+////        });
+//        boardsRepository.save(board);
+//    }
+//
+//    public List<Boards> getAllBoards(){
+//        return boardsRepository.findAll();
+//    }
+//
+//
+//}

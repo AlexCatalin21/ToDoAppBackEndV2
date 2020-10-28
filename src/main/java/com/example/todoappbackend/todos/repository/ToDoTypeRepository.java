@@ -1,9 +1,9 @@
 package com.example.todoappbackend.todos.repository;
 
-import com.example.todoappbackend.todos.model.ToDo;
+import com.example.todoappbackend.todos.model.ToDoType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ToDoRepository extends JpaRepository<ToDo, Long> {
+public interface ToDoTypeRepository extends JpaRepository<ToDoType, Long> {
 }

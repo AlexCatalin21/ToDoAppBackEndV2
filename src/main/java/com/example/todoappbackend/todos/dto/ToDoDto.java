@@ -13,6 +13,5 @@ public class ToDoDto {
     private long estimatedDays;
     private long allocatedTime;
     private long statusId;
-    private long boardId;
-
+    private long typeId;
 }

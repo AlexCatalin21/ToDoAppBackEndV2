@@ -1,6 +1,6 @@
 package com.example.todoappbackend.todos.model;
 
-import com.example.todoappbackend.boards.model.Boards;
+
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,12 +21,14 @@ public class ToDo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotNull
-    @Lob
     private String description;
     @NotNull
     private Date creationDate;
     @NotNull
     private Date expiringDate;
+
+    private Date completionDate;
+
     @NotNull
     private long estimatedDays;
     @NotNull
@@ -37,7 +39,10 @@ public class ToDo {
     @NotNull
     private ToDoStatus status;
 
-    @ManyToOne
-    @JoinColumn(name = "board_id" ,referencedColumnName = "Id")
-    private Boards board;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "todos_type_id", referencedColumnName = "Id")
+    @NotNull
+    private ToDoType type;
+
 }
+

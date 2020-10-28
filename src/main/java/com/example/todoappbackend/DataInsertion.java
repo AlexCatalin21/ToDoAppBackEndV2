@@ -1,9 +1,9 @@
 package com.example.todoappbackend;
 
-import com.example.todoappbackend.boards.model.BoardsType;
-import com.example.todoappbackend.boards.repository.BoardsTypeRepository;
 import com.example.todoappbackend.todos.model.ToDoStatus;
+import com.example.todoappbackend.todos.model.ToDoType;
 import com.example.todoappbackend.todos.repository.ToDoStatusRepository;
+import com.example.todoappbackend.todos.repository.ToDoTypeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,21 +11,21 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class DataInsertion {
 
-    private final BoardsTypeRepository boardsTypeRepository;
+    private final ToDoTypeRepository toDoTypeRepository;
     private final ToDoStatusRepository toDosStatusRepository;
 
     public void addTypesAndStatuses(){
-        BoardsType boardType1 = new BoardsType();
-        boardType1.setType(BoardsType.Type.HOME);
-        boardsTypeRepository.save(boardType1);
+        ToDoType toDoType1 = new ToDoType();
+        toDoType1.setType(ToDoType.Type.HOME);
+        toDoTypeRepository.save(toDoType1);
 
-        BoardsType boardType2 = new BoardsType();
-        boardType2.setType(BoardsType.Type.WORK);
-        boardsTypeRepository.save(boardType2);
+        ToDoType toDoType2 = new ToDoType();
+        toDoType2.setType(ToDoType.Type.WORK);
+        toDoTypeRepository.save(toDoType2);
 
-        BoardsType boardType3 = new BoardsType();
-        boardType3.setType(BoardsType.Type.FREE_TIME);
-        boardsTypeRepository.save(boardType3);
+        ToDoType toDoType3 = new ToDoType();
+        toDoType3.setType(ToDoType.Type.FREE_TIME);
+        toDoTypeRepository.save(toDoType3);
 
         ToDoStatus status1= new ToDoStatus();
         status1.setStatus(ToDoStatus.Status.IN_PROGRESS);
