@@ -14,4 +14,5 @@ public class ToDoDto {
     private long allocatedTime;
     private long statusId;
     private long typeId;
+    private Date completionDate;
 }

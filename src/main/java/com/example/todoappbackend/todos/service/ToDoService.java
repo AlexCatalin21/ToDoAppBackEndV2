@@ -11,6 +11,7 @@ import com.example.todoappbackend.todos.repository.ToDoTypeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
 import java.util.List;
@@ -62,6 +63,13 @@ public class ToDoService {
 
     public void deleteToDo(Long Id){
         toDoRepository.deleteById(Id);
+    }
+
+    public void updateToDo(Long Id, @RequestBody ToDoDto toDoDetails){
+        ToDo toDo= toDoRepository.getOne(Id);
+        toDo.setCompletionDate(toDoDetails.getCompletionDate());
+        toDo.setStatus(getStatusById(toDoDetails.getStatusId()));
+        ToDo updatedToDo= toDoRepository.save(toDo);
     }
 
 }

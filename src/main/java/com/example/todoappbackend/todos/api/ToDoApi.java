@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1/todos")
@@ -44,5 +45,12 @@ public class ToDoApi {
     public ResponseEntity<String> deleteToDo(@PathVariable("id") Long Id){
         toDoService.deleteToDo(Id);
         return new ResponseEntity<>("", HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> updateToDo(@PathVariable("id") Long Id,@RequestBody ToDoDto toDoDto){
+        toDoService.updateToDo(Id, toDoDto);
+        return new ResponseEntity<>("", HttpStatus.OK);
+
     }
 }
